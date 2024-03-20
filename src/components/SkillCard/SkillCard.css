@@ -1,0 +1,32 @@
+.CardContainer
+{
+  height:130px;
+  width:200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+  padding-top: 20px;
+  margin:10px;
+  color: aliceblue;
+}
+.CardContainer
+{
+    background: rgba(243, 243, 241, 0.12);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4.8px);
+-webkit-backdrop-filter: blur(4.8px);
+border: 3px solid rgba(243, 243, 241, 0.89);
+border-image: linear-gradient(rgb(141, 7, 141),rgb(65, 65, 247)) 1;
+}
+@media only screen and (max-width: 600px) 
+{
+  .CardContainer {
+    height: 10%;
+    width: 25%;
+    margin: 5px;
+  }
+  .skillName {
+    font-size: 0.6rem; /* Adjust font size for smaller screens */
+  }
+}

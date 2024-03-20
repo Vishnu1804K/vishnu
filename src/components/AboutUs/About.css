@@ -1,0 +1,49 @@
+.AboutContainer
+{
+    height:54vh;
+    display:flex;
+    flex-wrap: wrap;
+    color:white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.AboutPhoto img
+{
+  height:310px;
+  width: 400px;
+  margin-top: -40px;
+}
+.AboutPara
+{
+    height:500px;
+    width:700px;
+    font-size: 1.4rem;
+    
+}
+@media only screen and (max-width: 600px) 
+{
+  .AboutPhoto img{
+    height:200px;
+    width: 200px;
+    margin-top: 2px;
+  }
+  .AboutPara
+  {
+    font-size: 0.7rem;
+    height:500px;
+    width:250px;
+  }
+  .AboutHead
+  {
+    font-size: 1.2rem;
+    border-bottom:none;
+    margin-bottom: 10px;
+  }
+  .AboutContainer
+  {
+    flex-direction: row;
+    width: 277px;
+    margin: auto;
+  }
+}

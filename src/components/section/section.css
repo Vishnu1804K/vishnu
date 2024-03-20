@@ -1,0 +1,22 @@
+.Section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(5, 5, 5);
+    margin: auto;
+    width: 80vw;
+    margin-bottom: 130px;
+}
+@media only screen and (max-width: 600px) 
+{
+  .ProfileHead
+  {
+    font-size: 1.4rem;
+    border-bottom:none;
+    margin-bottom: 10px;
+  }
+  .Section
+  {
+   margin-bottom: 10px;
+  }
+}

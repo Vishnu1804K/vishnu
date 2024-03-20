@@ -1,0 +1,57 @@
+.ProfileArea
+{
+    background-color: #150025;
+}
+.ProfileContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+    align-items: center;
+  }
+  
+  .Pro {
+    flex:1;
+    text-align: center;
+    margin-top: -30px;
+    margin-left: 10px;
+    background: rgba(243, 243, 241, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.8px);
+    -webkit-backdrop-filter: blur(4.8px);
+    padding: 20px;
+  }
+  .Pro:hover
+  {
+    background-color: rgb(80, 4, 80);
+  }
+  .Pro img {
+    width: 100px;
+    height: 100px;
+  }
+  @media only screen and (max-width: 600px) {
+    .ProjectHead
+  {
+    font-size: 1.4rem;
+    border-bottom:none;
+    margin-bottom: 10px;
+  }
+  .Pro{
+    flex: 1;
+  }
+  .Pro img
+  {
+    height: 40px;
+    width: 40px;
+  }
+  .Pro h3
+  {
+   display: none;
+  }
+  .ProfileContainer
+  {
+    flex-direction: row;
+    margin: auto;
+    width: 250px;
+  }
+  }
