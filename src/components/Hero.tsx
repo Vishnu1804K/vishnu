@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiCode, FiAward } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { SiCodeforces, SiCodechef, SiLeetcode } from 'react-icons/si';
 
 const Hero: React.FC = () => {
   const containerVariants = {
@@ -52,12 +53,13 @@ const Hero: React.FC = () => {
             </a>
           </motion.div>
 
-          <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-            <a href="mailto:srivishnukancherla@gmail.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><FiMail size={24} /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><FiLinkedin size={24} /></a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><FiGithub size={24} /></a>
-            <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><FiCode size={24} /></a>
-            <a href="https://codechef.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><FiAward size={24} /></a>
+          <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <a href="mailto:srivishnukancherla@gmail.com" target="_blank" rel="noopener noreferrer" className="social-icon" style={{ color: 'var(--text-secondary)' }}><FiMail size={22} /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon" style={{ color: 'var(--text-secondary)' }}><FiLinkedin size={22} /></a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-icon" style={{ color: 'var(--text-secondary)' }}><FiGithub size={22} /></a>
+            <a href="https://leetcode.com/u/BoltHead/" target="_blank" rel="noopener noreferrer" className="social-icon" style={{ color: 'var(--text-secondary)' }}><SiLeetcode size={22} /></a>
+            <a href="https://www.codechef.com/users/c0der_star_7" target="_blank" rel="noopener noreferrer" className="social-icon" style={{ color: 'var(--text-secondary)' }}><SiCodechef size={22} /></a>
+            <a href="https://codeforces.com/profile/K_Sri_Vishnu" target="_blank" rel="noopener noreferrer" className="social-icon" style={{ color: 'var(--text-secondary)' }}><SiCodeforces size={22} /></a>
           </motion.div>
         </motion.div>
       </div>

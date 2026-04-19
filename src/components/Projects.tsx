@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiExternalLink, FiX } from 'react-icons/fi';
 
@@ -7,6 +7,7 @@ interface Project {
   link?: string;
   techStack: string[];
   description: string;
+  role: string;
   points: string[];
 }
 
@@ -14,37 +15,42 @@ const projects: Project[] = [
   {
     title: "RealtyForum360",
     link: "https://realtyforum360.com/",
-    techStack: ["React.js", "Node.js", "MongoDB"],
-    description: "A specialized real estate discussion platform connecting property buyers, investors, and consultants through peer-vetted project reviews and market insights.",
+    techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "BitBucket Pipelines (CI/CD)", "REST APIs", "SEO Optimization", "AWS CloudFront"],
+    description: "RealtyForum360 is a specialized real estate discussion platform that connects property buyers, investors, and consultants through community-reviewed project reviews and market insights. It is particularly active in the Hyderabad market, providing a community space to track construction updates, discuss legal approvals, and share honest feedback on major residential developments.",
+    role: "Worked as an individual contributor, collaborating closely with team leads and senior developers to streamline technical workflows and deliver features supporting successful project releases.",
     points: [
-      "Implemented server-side rendering (SSR) for high-traffic Forum pages, improving initial load times.",
-      "Optimized Landmark Website achieving 100% SEO score, 90% best practices rating, and 78% performance score, attracting 30 lakh+ visitors.",
-      "Built 5+ reusable React custom hooks reducing duplicate logic across 15+ components.",
-      "Designed and implemented Bitbucket CI/CD pipelines to automate build and deployment processes."
+      "Implemented server-side rendering (SSR) for high-traffic Forum pages, improving initial load times and search engine indexability.",
+      "Optimized RealtyForum360 platform achieving 100% SEO score, 90% best practices rating, and 78% performance score in production, attracting 30 lakh+ website visitors from various global regions.",
+      "Built 5+ reusable React custom hooks (data fetching, debounce, intersection observer, localStorage, cached API), reducing duplicate logic across 15+ components and improving development efficiency by 30%.",
+      "Built reusable shared components across RealtyForum360 applications improving reusability, consistency, and enforcing standard coding practices.",
+      "Designed and implemented CI/CD pipelines to automate build and deployment processes, ensuring consistent and reliable releases."
     ]
   },
   {
     title: "Prospects (CMS Platform)",
-    // CMS typically internal, no public live link provided
-    techStack: ["Angular", "Node.js", "MongoDB"],
-    description: "Specialized real estate CRM designed to track leads and manage the transition from initial bids to active projects.",
+    techStack: ["Angular", "Node.js", "Express.js", "MongoDB", "Redis", "REST APIs", "BullMQ", "EJS", "CronJobs", "Zoom API", "TailwindCSS", "PrimeNg"],
+    description: "Prospects is a specialized real estate CRM designed to track leads and manage the transition from initial bids to active projects. It features data-driven analytics to monitor user engagement during webinars and site visits, helping developers optimize their sales funnel and increase conversion rates.",
+    role: "Independently led the project for three months, managing end-to-end workflows while mentoring and training an intern to enhance team productivity.",
     points: [
-      "Implemented thread-safe OAuth token refresh in ZoomService using semaphores.",
-      "Integrated Zoom Webinar APIs with cron job scheduling and message queues for 500+ clients.",
-      "Implemented Redis server-side caching optimizing user permissions and API latency.",
-      "Added lazy loading and server-side pagination reducing bundle size by 40%."
+      "Implemented thread-safe OAuth token refresh in a singleton ZoomService using semaphores to handle race conditions across 8+ concurrent requests, achieving 100% token refresh reliability.",
+      "Integrated Zoom Webinar APIs with cron jobs and message queues to automate event notifications for 500+ clients, saving manual effort by 10 hours per week",
+      "Implemented server-side caching using Redis and in-memory caching to optimize user permissions and API responses, reducing database load, and improving API latency.",
+      "Developed 4+ reusable UI components to standardize the interface and reduce duplicate code across the Prospects Platform.",
+      "Added lazy loading and server-side pagination in Prospects Platform, reducing initial bundle size by 40% and lowering memory usage by 35% for datasets exceeding 10,000 records.",
+      "Created reusable email templates using EJS to generate dynamic, user-specific content."
     ]
   },
   {
     title: "Inncircles Arena",
     link: "https://inncircles.com/",
-    techStack: ["Angular", "MongoDB"],
-    description: "AI-powered, cloud-based construction management platform that digitizes the entire project lifecycle from planning to handover.",
+    techStack: ["Angular", "Node.js", "Express.js", "MongoDB"],
+    description: "Inncircles Arena is an AI-powered, cloud-based construction management platform that digitizes the entire project lifecycle from planning to handover. It streamlines field-to-office communication through real-time mobile updates, automated document control, and predictive analytics to prevent cost overruns and schedule delays.",
+    role: "Collaborated closely with team leads and senior developers to streamline technical workflows and deliver features that contributed to successful project launches.",
     points: [
-      "Integrated Socket.io to build a real-time chat support feature enabling seamless communication.",
-      "Built data-heavy Angular modules from Figma designs for Equipment, Bid Management, and Expense Tracker.",
-      "Wrote complex MongoDB aggregation pipelines for deep data insights and tracking.",
-      "Developed Node.js scripts to handle smooth data migration between schemas."
+      "Developed Excel export functionality in Inncircles Arena Platform, streamlining data extraction across multiple modules and improving reporting efficiency.",
+      "Built data-heavy modules from Figma designs for Equipment Management, Bid Management, and Expense Tracker modules.",
+      "Wrote complex aggregation for Bid Management and Expense Tracker modules.",
+      "Developed Node.js scripts to handle schema changes ensuring, seamless data migration and system continuity for Equipment Management and Expense Tracker modules."
     ]
   }
 ];
@@ -91,14 +97,19 @@ const Projects: React.FC = () => {
               </div>
               
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
-                {project.techStack.map(tech => (
+                {project.techStack.slice(0, 5).map(tech => (
                   <span key={tech} style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem', borderRadius: '4px', background: 'var(--bg-secondary)', color: 'var(--accent-primary)', border: '1px solid var(--border-color)' }}>
                     {tech}
                   </span>
                 ))}
+                {project.techStack.length > 5 && (
+                  <span style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem', borderRadius: '4px', background: 'transparent', color: 'var(--text-secondary)' }}>
+                    +{project.techStack.length - 5} more
+                  </span>
+                )}
               </div>
               
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', flexGrow: 1, margin: 0 }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', flexGrow: 1, margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>
                 {project.description}
               </p>
             </motion.div>
@@ -116,8 +127,11 @@ const Projects: React.FC = () => {
             style={{
               position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
               background: 'rgba(5, 5, 5, 0.85)', backdropFilter: 'blur(12px)',
-              zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center',
-              padding: '2rem'
+              zIndex: 1000, 
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              padding: '2rem 1rem',
+              overflowY: 'auto',
+              WebkitOverflowScrolling: 'touch'
             }}
             onClick={() => setSelectedProject(null)}
           >
@@ -132,10 +146,12 @@ const Projects: React.FC = () => {
                 borderRadius: '16px',
                 width: '100%',
                 maxWidth: '1200px',
-                height: '80vh',
+                height: 'auto',
+                minHeight: '600px',
                 display: 'flex',
                 overflow: 'hidden',
-                position: 'relative'
+                position: 'relative',
+                margin: 'auto 0'
               }}
               onClick={e => e.stopPropagation()}
               className="project-modal-content"
@@ -170,7 +186,7 @@ const Projects: React.FC = () => {
               </div>
               
               {/* Right Side Content */}
-              <div className="modal-info-container" style={{ flex: '1.2', padding: '3.5rem', overflowY: 'auto' }}>
+              <div className="modal-info-container" style={{ flex: '1.2', padding: '3.5rem' }}>
                 <h2 style={{ fontSize: '2.2rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>
                   {selectedProject.title}
                 </h2>
@@ -183,12 +199,22 @@ const Projects: React.FC = () => {
                   ))}
                 </div>
 
-                <p style={{ color: 'var(--text-secondary)', marginBottom: '2.5rem', lineHeight: 1.8, fontSize: '1.05rem' }}>
-                  {selectedProject.description}
-                </p>
+                <div style={{ marginBottom: '2.5rem' }}>
+                  <h4 style={{ color: 'var(--text-primary)', marginBottom: '0.5rem' }}>About</h4>
+                  <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '1.05rem', margin: 0 }}>
+                    {selectedProject.description}
+                  </p>
+                </div>
+
+                <div style={{ marginBottom: '2.5rem' }}>
+                  <h4 style={{ color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Role</h4>
+                  <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '1.05rem', margin: 0 }}>
+                    {selectedProject.role}
+                  </p>
+                </div>
 
                 <h3 style={{ marginBottom: '1.5rem', fontSize: '1.3rem', color: 'var(--text-primary)', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
-                  My Work & Responsibilities
+                  My Contributions
                 </h3>
                 
                 <ul style={{ paddingLeft: '0', listStyleType: 'none', color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
