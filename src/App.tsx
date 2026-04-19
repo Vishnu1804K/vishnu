@@ -1,13 +1,13 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import ProfessionalSummary from './components/ProfessionalSummary';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Achievements from './components/Achievements';
-import Education from './components/Education';
-import Contact from './components/Contact';
+
+import Navbar from './components/Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import ProfessionalSummary from './components/ProfessionalSummary.tsx';
+import Experience from './components/Experience.tsx';
+import Projects from './components/Projects.tsx';
+import Skills from './components/Skills.tsx';
+import Achievements from './components/Achievements.tsx';
+import Education from './components/Education.tsx';
+import Contact from './components/Contact.tsx';
 
 function App() {
   return (
